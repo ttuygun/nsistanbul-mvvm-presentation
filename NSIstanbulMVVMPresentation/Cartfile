@@ -1,0 +1,5 @@
+github "Hearst-DD/ObjectMapper" ~> 3.0.0
+github "SwiftyJSON/SwiftyJSON" ~> 4.0.0
+github "Moya/Moya" ~> 10.0.0
+github "Alamofire/Alamofire" ~> 4.5.1
+github "ReactiveX/RxSwift" ~> 4.0.0

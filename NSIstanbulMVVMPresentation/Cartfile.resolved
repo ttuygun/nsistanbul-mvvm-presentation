@@ -1,0 +1,7 @@
+github "Alamofire/Alamofire" "4.5.1"
+github "Hearst-DD/ObjectMapper" "3.1.0"
+github "Moya/Moya" "10.0.0"
+github "ReactiveCocoa/ReactiveSwift" "2.0.1"
+github "ReactiveX/RxSwift" "4.0.0"
+github "SwiftyJSON/SwiftyJSON" "4.0.0"
+github "antitypical/Result" "3.2.4"

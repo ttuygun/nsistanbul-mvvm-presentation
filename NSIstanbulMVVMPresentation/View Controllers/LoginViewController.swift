@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class LoginViewController: UIViewController {
     
@@ -14,37 +16,45 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var email: String?
-    var password: String?
+    let viewModel = LoginViewModel()
+    let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        emailTextField.rx.text.orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: bag)
         
-        loginButton.isEnabled = false
+        passwordTextField.rx.text.orEmpty
+            .bind(to: viewModel.password)
+            .disposed(by: bag)
+
+        
+        _ = viewModel.isLoginButtonEnabled.asObservable()
+            .subscribe(onNext: {
+                print($0)
+            }).disposed(by: bag)
+        
+         _ = viewModel.isLoginButtonEnabled.asObservable()
+            .bind(to: loginButton.rx.isEnabled)
+            .disposed(by: bag)
+        
+//        _ = viewModel.isLoginButtonEnabled.asObservable()
+//            .subscribe(onNext: {
+//                 self.loginButton.isEnabled = $0
+//            })
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func isValidEmail(email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: email)
-    }
-    
-    func isValidPassword(password: String) -> Bool {
-        if password.count < 8 {
-            return false
-        }
-        return true
-    }
+
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -56,14 +66,14 @@ extension LoginViewController: UITextFieldDelegate {
         
         print("email=\(email))")
         print("password=\(password)")
-        print("isValidEmail=\(isValidEmail(email: email))")
-        print("isValidPassword=\(isValidPassword(password: password))")
-        
-        if isValidEmail(email: email) && isValidPassword(password: password) {
-            loginButton.isEnabled = true
-        } else {
-            loginButton.isEnabled = false
-        }
+//        print("isValidEmail=\(isValidEmail(email: email))")
+//        print("isValidPassword=\(isValidPassword(password: password))")
+//        
+//        if isValidEmail(email: email) && isValidPassword(password: password) {
+//            loginButton.isEnabled = true
+//        } else {
+//            loginButton.isEnabled = false
+//        }
 
         return true
     }
