@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F397D05C1FCDB06400749DC5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F397D05B1FCDB06400749DC5 /* LoginViewModel.swift */; };
 		F3CFE2171FC6D42C0014B8E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CFE2161FC6D42C0014B8E8 /* AppDelegate.swift */; };
-		F3CFE2191FC6D42C0014B8E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CFE2181FC6D42C0014B8E8 /* ViewController.swift */; };
-		F3CFE21C1FC6D42C0014B8E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3CFE21A1FC6D42C0014B8E8 /* Main.storyboard */; };
 		F3CFE21E1FC6D42C0014B8E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3CFE21D1FC6D42C0014B8E8 /* Assets.xcassets */; };
 		F3CFE2211FC6D42C0014B8E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3CFE21F1FC6D42C0014B8E8 /* LaunchScreen.storyboard */; };
 		F3CFE2291FC6D4D80014B8E8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3CFE2281FC6D4D80014B8E8 /* Login.storyboard */; };
@@ -17,10 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F397D05B1FCDB06400749DC5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F3CFE2131FC6D42C0014B8E8 /* NSIstanbulMVVMPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSIstanbulMVVMPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3CFE2161FC6D42C0014B8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3CFE2181FC6D42C0014B8E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F3CFE21B1FC6D42C0014B8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3CFE21D1FC6D42C0014B8E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3CFE2201FC6D42C0014B8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3CFE2221FC6D42C0014B8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F397D05A1FCDB05200749DC5 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				F397D05B1FCDB06400749DC5 /* LoginViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		F3CFE20A1FC6D42C0014B8E8 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +64,7 @@
 		F3CFE2151FC6D42C0014B8E8 /* NSIstanbulMVVMPresentation */ = {
 			isa = PBXGroup;
 			children = (
+				F397D05A1FCDB05200749DC5 /* View Models */,
 				F3CFE22B1FC6D4EC0014B8E8 /* View Controllers */,
 				F3CFE22A1FC6D4E30014B8E8 /* Views */,
 				F3CFE22D1FC6D5110014B8E8 /* Supporting Files */,
@@ -69,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				F3CFE2281FC6D4D80014B8E8 /* Login.storyboard */,
-				F3CFE21A1FC6D42C0014B8E8 /* Main.storyboard */,
 				F3CFE21F1FC6D42C0014B8E8 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -78,7 +84,6 @@
 		F3CFE22B1FC6D4EC0014B8E8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F3CFE2181FC6D42C0014B8E8 /* ViewController.swift */,
 				F3CFE22E1FC6D54F0014B8E8 /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
@@ -156,7 +161,6 @@
 				F3CFE2291FC6D4D80014B8E8 /* Login.storyboard in Resources */,
 				F3CFE2211FC6D42C0014B8E8 /* LaunchScreen.storyboard in Resources */,
 				F3CFE21E1FC6D42C0014B8E8 /* Assets.xcassets in Resources */,
-				F3CFE21C1FC6D42C0014B8E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +171,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F397D05C1FCDB06400749DC5 /* LoginViewModel.swift in Sources */,
 				F3CFE22F1FC6D54F0014B8E8 /* LoginViewController.swift in Sources */,
-				F3CFE2191FC6D42C0014B8E8 /* ViewController.swift in Sources */,
 				F3CFE2171FC6D42C0014B8E8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,14 +180,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F3CFE21A1FC6D42C0014B8E8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F3CFE21B1FC6D42C0014B8E8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F3CFE21F1FC6D42C0014B8E8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -313,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ttuygun.NSIstanbulMVVMPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -329,7 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ttuygun.NSIstanbulMVVMPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

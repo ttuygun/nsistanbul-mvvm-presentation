@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoginViewModelDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var email: String?
-    var password: String?
+    var viewModel = LoginViewModel()
+    var delegate: LoginViewModelDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,25 +25,12 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         
         loginButton.isEnabled = false
+        viewModel.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func isValidEmail(email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: email)
-    }
-    
-    func isValidPassword(password: String) -> Bool {
-        if password.count < 8 {
-            return false
-        }
-        return true
+    func notifyController() {
+        print("notified")
+        loginButton.isEnabled = viewModel.isLoginButtonEnabled
     }
 }
 
@@ -51,19 +38,8 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        
-        print("email=\(email))")
-        print("password=\(password)")
-        print("isValidEmail=\(isValidEmail(email: email))")
-        print("isValidPassword=\(isValidPassword(password: password))")
-        
-        if isValidEmail(email: email) && isValidPassword(password: password) {
-            loginButton.isEnabled = true
-        } else {
-            loginButton.isEnabled = false
-        }
+        viewModel.email = emailTextField.text ?? ""
+        viewModel.password = passwordTextField.text ?? ""
 
         return true
     }
