@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         emailTextField.rx.text.orEmpty
             .bind(to: viewModel.email)
             .disposed(by: bag)
@@ -30,53 +29,13 @@ class LoginViewController: UIViewController {
         passwordTextField.rx.text.orEmpty
             .bind(to: viewModel.password)
             .disposed(by: bag)
-
         
-        _ = viewModel.isLoginButtonEnabled.asObservable()
-            .subscribe(onNext: {
-                print($0)
-            }).disposed(by: bag)
-        
-         _ = viewModel.isLoginButtonEnabled.asObservable()
+        viewModel.isLoginButtonEnabled.asObservable()
             .bind(to: loginButton.rx.isEnabled)
             .disposed(by: bag)
         
-//        _ = viewModel.isLoginButtonEnabled.asObservable()
-//            .subscribe(onNext: {
-//                 self.loginButton.isEnabled = $0
-//            })
     }
     
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
 }
 
-extension LoginViewController: UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        
-        print("email=\(email))")
-        print("password=\(password)")
-//        print("isValidEmail=\(isValidEmail(email: email))")
-//        print("isValidPassword=\(isValidPassword(password: password))")
-//        
-//        if isValidEmail(email: email) && isValidPassword(password: password) {
-//            loginButton.isEnabled = true
-//        } else {
-//            loginButton.isEnabled = false
-//        }
 
-        return true
-    }
-    
-   
-}

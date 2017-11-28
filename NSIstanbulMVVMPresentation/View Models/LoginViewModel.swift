@@ -9,21 +9,27 @@
 import Foundation
 import RxSwift
 
-struct LoginViewModel {
+class LoginViewModel {
     
     let email = Variable<String>("")
     let password = Variable<String>("")
     let isLoginButtonEnabled = Variable<Bool>(false)
+    let bag = DisposeBag()
     
     init() {
-        _ = email.asObservable()
-        _ = password.asObservable()
-        _ = isLoginButtonEnabled.asObservable()
+        email.asObservable()
             .subscribe(onNext: { value in
-                
-            })
+                self.handleLoginButtonEnabledState()
+            }).disposed(by: bag)
         
-
+        password.asObservable()
+            .subscribe(onNext: { value in
+                self.handleLoginButtonEnabledState()
+            }).disposed(by: bag)
+    }
+    
+    func handleLoginButtonEnabledState(){
+        isLoginButtonEnabled.value = isValidEmail(email: email.value) && isValidPassword(password: password.value)
     }
     
     func isValidEmail(email: String) -> Bool {
