@@ -29,7 +29,6 @@ class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
 
     func notifyController() {
-        print("notified")
         loginButton.isEnabled = viewModel.isLoginButtonEnabled
     }
 }
