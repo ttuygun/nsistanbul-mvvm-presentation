@@ -12,7 +12,7 @@ import RxSwift
 class LoginViewModel {
     
     let email = Variable<String>("")
-    let password = Variable<String>("")
+    let password = Variable("")
     let isLoginButtonEnabled = Variable<Bool>(false)
     let bag = DisposeBag()
     
