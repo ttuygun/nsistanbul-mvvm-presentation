@@ -6,4 +6,4 @@ Please use branches to see the difference between MVC, MVVM and MVVM with RxSwif
 Active development is in login-mvc, login-mvvm and login-mcvm-with-rx branches not in master.
 
 [Event link](https://www.eventbrite.com/e/nsistanbul-kasm-2017-meetup-tickets-40781780403)
-[Article about event] (Turkish)(https://medium.com/@strawb3rryx7/nsistanbul-kas%C4%B1m-2017-meetup-sunum-%C3%B6zeti-mvvm-fastlane-ec13a2bfc219)
+[Article about event (Turkish)](https://medium.com/@strawb3rryx7/nsistanbul-kas%C4%B1m-2017-meetup-sunum-%C3%B6zeti-mvvm-fastlane-ec13a2bfc219)
